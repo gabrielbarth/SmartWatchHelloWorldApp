@@ -17,7 +17,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val messageClient: MessageClient = Wearable.getMessageClient(application)
 
-    // Expõe a mensagem recebida como um StateFlow para a UI observar
     private val _receivedMessage = MutableStateFlow("Aguardando mensagem...")
     val receivedMessage: StateFlow<String> = _receivedMessage.asStateFlow()
 
@@ -52,7 +51,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    // Limpa o listener quando o ViewModel é destruído
     override fun onCleared() {
         super.onCleared()
         messageClient.removeListener(messageListener)
