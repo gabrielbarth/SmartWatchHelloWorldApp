@@ -21,6 +21,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val receivedMessage: StateFlow<String> = _receivedMessage.asStateFlow()
 
     private val messageListener = MessageClient.OnMessageReceivedListener { messageEvent ->
+        Log.d("MobileViewModel", "messageEvent: $messageEvent")
         if (messageEvent.path == "/msg") {
             val received = String(messageEvent.data)
             Log.d("MobileViewModel", "Recebido: $received")
