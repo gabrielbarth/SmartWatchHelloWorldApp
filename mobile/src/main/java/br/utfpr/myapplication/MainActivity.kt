@@ -1,6 +1,7 @@
 package br.utfpr.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +30,10 @@ class MainActivity : ComponentActivity() {
             val viewModel: MainViewModel = viewModel()
             val receivedMessage by viewModel.receivedMessage.collectAsState()
             var textToSend by remember { mutableStateOf("") }
+
+            Log.d("MainActivity", "Mensagem recebida atual: $receivedMessage")
+
+            val isMovement = receivedMessage.contains("movimento", ignoreCase = true)
 
             Box(
                 modifier = Modifier
@@ -45,7 +51,6 @@ class MainActivity : ComponentActivity() {
                         contentDescription = "Logo da UTFPR",
                         modifier = Modifier.height(60.dp)
                     )
-
                     Spacer(modifier = Modifier.height(16.dp))
 
                     OutlinedTextField(
@@ -72,15 +77,20 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Text("Enviar ao relógio", color = Color.White)
                     }
-
                     Spacer(modifier = Modifier.height(16.dp))
-
                     Box(
                         modifier = Modifier
+                            .fillMaxWidth()
                             .background(Color.White, RoundedCornerShape(8.dp))
-                            .padding(16.dp)
+                            .padding(16.dp),
                     ) {
-                        Text("Recebido: $receivedMessage", color = Color.Black)
+                        Text(
+                            text = receivedMessage,
+                            color = if (isMovement) Color.Red else Color.Black,
+                            fontSize = if (isMovement) 24.sp else 16.sp,
+                            modifier = Modifier.align(Alignment.Center)
+                        )
+
                     }
                 }
             }

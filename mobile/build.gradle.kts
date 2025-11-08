@@ -6,9 +6,7 @@ plugins {
 
 android {
     namespace = "br.utfpr.myapplication"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "br.utfpr.myapplication"
