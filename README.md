@@ -1,10 +1,10 @@
+# Funcionalidades
+- Uso de sensor de movimento (aceleração) no relógio (WearOS) e envio para o celular quando detectado movimento;
+- Uso de api de clima/temperatura no projeto do relógio (WearOS) para envio para o device;
+- Envio de mensagem do Celular para o relógio (WearOS)
+
 # Demonstração
-
-
-
 https://github.com/user-attachments/assets/0ef7601f-9b9a-4ad3-b6b1-bf1c0801d768
-
-
 
 # Documentação de Fluxo: Projeto de Comunicação Celular-Relógio
 
