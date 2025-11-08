@@ -1,3 +1,11 @@
+# Demonstração
+
+
+
+https://github.com/user-attachments/assets/0ef7601f-9b9a-4ad3-b6b1-bf1c0801d768
+
+
+
 # Documentação de Fluxo: Projeto de Comunicação Celular-Relógio
 
 Este documento detalha o processo de desenvolvimento, os desafios encontrados e as soluções aplicadas na criação de um projeto de comunicação bidirecional entre um aplicativo de celular e um de Wear OS.
